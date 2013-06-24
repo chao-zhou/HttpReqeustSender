@@ -1,0 +1,84 @@
+﻿<Window x:Class="HttpReqeustSender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800" Icon="/HttpReqeustSender;component/Images/mail_reply_sender.ico" Closed="Window_Closed" Loaded="Window_Loaded">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF00C4E5" Offset="0" />
+            <GradientStop Color="#FFC7FFFF" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo  x:Name="tasBar"/>
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <DockPanel Margin="10" Grid.ColumnSpan="2">
+                <TextBlock DockPanel.Dock="Left" Margin="3" Padding="2">URL:</TextBlock>
+                <Button Name="btnSend" DockPanel.Dock="Right" Margin="3" Padding="2" Click="btnSend_Click">_Send Request</Button>
+                <TextBox Name="txtURL" Margin="3" Padding="2" ></TextBox>   
+            </DockPanel>
+            
+            <TabControl Grid.Row="1" Name="tabRequest">
+                <TabItem Header="GET" >
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto" TextWrapping="Wrap">
+                        <TextBox.Text>Type=record</TextBox.Text>
+                    </TextBox>
+                </TabItem>
+                <TabItem Header="DELETE">
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto">
+                        <TextBox.Text>Type=record</TextBox.Text>
+                    </TextBox>
+                </TabItem>
+                <TabItem Header="POST">
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto">
+                        <TextBox.Text>symantec.set.serv.datatypes.SetTrackingRecord=</TextBox.Text>
+                    </TextBox>
+                </TabItem>
+            </TabControl>
+            
+            <TabControl Grid.Row="1" Grid.Column="1" Margin="3,0,0,0">
+                <TabItem Header="Request Cookies" ></TabItem>
+                <TabItem Header="Response Cookies" ></TabItem>
+            </TabControl>
+            
+            
+        </Grid>
+        
+        <Grid Grid.Row="1" Margin="0,10,0,0">
+            <TabControl Name="tabResponse"  Grid.Row="1">
+                <TabItem Header="GET" >
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto" />
+                </TabItem>
+                <TabItem Header="DELETE">
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto" />
+                </TabItem>
+                <TabItem Header="POST">
+                    <TextBox  AcceptsReturn="True" AcceptsTab="True" 
+                              HorizontalScrollBarVisibility="Auto" />
+                </TabItem>
+            </TabControl>
+        </Grid>
+        
+    </Grid>
+</Window>
